@@ -11,7 +11,7 @@ import java.util.Scanner;
  * ``AACEDGG'' has only one inversion (E and D)---it is nearly sorted---while
  * the sequence ``ZWQM'' has 6 inversions (it is as unsorted as can be---exactly
  * the reverse of sorted).
- * 
+ * <p>
  * You are responsible for cataloguing a sequence of DNA strings (sequences
  * containing only the four letters A, C, G, and T). However, you want to
  * catalog them, not in alphabetical order, but rather in order of
