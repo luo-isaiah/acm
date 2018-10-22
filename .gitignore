@@ -13,3 +13,7 @@
 
 # Maven #
 /target/
+
+# IntelliJ Files #
+.idea
+*.iml

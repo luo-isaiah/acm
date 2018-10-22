@@ -2,43 +2,65 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class Deque<Item> implements Iterable<Item> {
-    /** first node */
+    /**
+     * first node
+     */
     private Node first;
-    /** last node */
+    /**
+     * last node
+     */
     private Node last;
-    /** queue size */
+    /**
+     * queue size
+     */
     private int size;
-    
-    /** Node */
-    private class Node{
-        /** previous node */
+
+    /**
+     * Node
+     */
+    private class Node {
+        /**
+         * previous node
+         */
         private Node prev;
-        /** item */
+        /**
+         * item
+         */
         private Item item;
-        /** next node */
-        private Node next;        
+        /**
+         * next node
+         */
+        private Node next;
     }
-    
-    /** construct an empty deque */
+
+    /**
+     * construct an empty deque
+     */
     public Deque() {
     }
-    
-    /** is the deque empty? */
+
+    /**
+     * is the deque empty?
+     */
     public boolean isEmpty() {
         return size == 0;
     }
-    
-    /** return the number of items on the deque */
+
+    /**
+     * return the number of items on the deque
+     */
     public int size() {
         return size;
     }
-    
-    /** add the item to the front */
+
+    /**
+     * add the item to the front
+     */
     public void addFirst(Item item) {
         if (item == null) {
             throw new IllegalArgumentException("First could not be null!");
         }
-        
+
         Node node = new Node();
         node.item = item;
         if (size == 0) {
@@ -51,13 +73,15 @@ public class Deque<Item> implements Iterable<Item> {
         }
         size++;
     }
-    
-    /** add the item to the end */
+
+    /**
+     * add the item to the end
+     */
     public void addLast(Item item) {
         if (item == null) {
             throw new IllegalArgumentException("Last could not be null!");
         }
-        
+
         Node node = new Node();
         node.item = item;
         if (size == 0) {
@@ -70,13 +94,15 @@ public class Deque<Item> implements Iterable<Item> {
         }
         size++;
     }
-    
-    /** remove and return the item from the front */
+
+    /**
+     * remove and return the item from the front
+     */
     public Item removeFirst() {
         if (size == 0) {
             throw new NoSuchElementException("Queue is empty!");
         }
-        
+
         Node result = first;
         first = first.next;
         first.prev = null;
@@ -84,13 +110,15 @@ public class Deque<Item> implements Iterable<Item> {
         size--;
         return result.item;
     }
-    
-    /** remove and return the item from the end */
+
+    /**
+     * remove and return the item from the end
+     */
     public Item removeLast() {
         if (size == 0) {
             throw new NoSuchElementException("Queue is empty!");
         }
-        
+
         Node result = last;
         last = last.prev;
         last.next = null;
@@ -98,40 +126,48 @@ public class Deque<Item> implements Iterable<Item> {
         size--;
         return result.item;
     }
-    
-    /** Deque Iterator */
+
+    /**
+     * Deque Iterator
+     */
     private class DequeIterator implements Iterator<Item> {
-        /** current node */
+        /**
+         * current node
+         */
         private Node cur = size == 0 ? null : first;
-        
+
         @Override
         public boolean hasNext() {
             return cur != null;
         }
-        
+
         @Override
         public Item next() {
             if (cur == null) {
                 throw new NoSuchElementException("Iterator is empty!");
             }
-            
+
             Item item = cur.item;
             cur = cur.next;
             return item;
         }
-        
+
         @Override
         public void remove() {
             throw new UnsupportedOperationException();
         }
     }
-    
-    /** return an iterator over items in order from front to end */
+
+    /**
+     * return an iterator over items in order from front to end
+     */
     public Iterator<Item> iterator() {
         return new DequeIterator();
     }
-    
-    /** unit testing */
+
+    /**
+     * unit testing
+     */
     public static void main(String[] args) {
         Deque<String> queue = new Deque<String>();
         System.out.println(queue.size);
