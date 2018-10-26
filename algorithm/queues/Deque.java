@@ -104,9 +104,14 @@ public class Deque<Item> implements Iterable<Item> {
         }
 
         Node result = first;
-        first = first.next;
-        first.prev = null;
-        result.next = null;
+        if (size != 1) {
+            first = first.next;
+            first.prev = null;
+            result.next = null;
+        } else {
+            first = null;
+            last = null;
+        }
         size--;
         return result.item;
     }
@@ -120,9 +125,14 @@ public class Deque<Item> implements Iterable<Item> {
         }
 
         Node result = last;
-        last = last.prev;
-        last.next = null;
-        result.prev = null;
+        if (size != 1) {
+            last = last.prev;
+            last.next = null;
+            result.prev = null;
+        } else {
+            first = null;
+            last = null;
+        }
         size--;
         return result.item;
     }

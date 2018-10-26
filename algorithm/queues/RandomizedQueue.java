@@ -69,30 +69,11 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
             cur = node;
             curIndex = 0;
         } else {
-            int r = StdRandom.uniform(0, size + 1);
-            if (r > curIndex) {
-                for (int i = curIndex; i < r && cur.next != null; i++) {
-                    cur = cur.next;
-                }
-            } else {
-                for (int i = curIndex; i > r; i--) {
-                    cur = cur.prev;
-                }
-            }
-
-            curIndex = r;
-            if (curIndex == size) {
-                cur.next = node;
-                node.prev = cur;
-                cur = node;
-            } else {
-                node.prev = cur.prev;
-                node.next = cur;
-                cur.prev = node;
-                cur = node;
-                if (cur.prev != null) {
-                    cur.prev.next = node;
-                }
+            node.next = cur.next;
+            cur.next = node;
+            node.prev = cur;
+            if (node.next != null) {
+                node.next.prev = node;
             }
         }
         size++;
@@ -106,7 +87,16 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
             throw new NoSuchElementException("Queue is empty!");
         }
 
-        int r = StdRandom.uniform(0, size);
+        if (size == 1) {
+            Node tmp = cur;
+            tmp.prev = null;
+            tmp.next = null;
+            size--;
+            cur = null;
+            return tmp.item;
+        }
+
+        int r = StdRandom.uniform(0, size > 100 ? 100 : size);
         if (r > curIndex) {
             for (int i = curIndex; i < r; i++) {
                 cur = cur.next;
@@ -148,7 +138,11 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
             throw new NoSuchElementException("Queue is empty!");
         }
 
-        int r = StdRandom.uniform(0, size);
+        if (size == 1) {
+            return cur.item;
+        }
+
+        int r = StdRandom.uniform(0, size > 100 ? 100 : size);
         Node tmp = cur;
         if (r > curIndex) {
             for (int i = curIndex; i < r; i++) {
@@ -170,7 +164,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         /**
          * current item array
          */
-        private Item[] items;
+        private Object[] items;
         /**
          * current item length
          */
@@ -182,7 +176,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
                 length = 0;
             } else {
                 length = size;
-                items = (Item[]) new Object[length];
+                items = new Object[length];
                 Node tmp = cur;
                 int i = 0;
                 items[i++] = tmp.item;
@@ -210,7 +204,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
             }
 
             int r = StdRandom.uniform(0, length--);
-            Item tmp = items[r];
+            Item tmp = (Item) items[r];
             if (r != length) {
                 items[r] = items[length];
             }
