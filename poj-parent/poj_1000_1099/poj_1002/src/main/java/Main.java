@@ -1,8 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Businesses like to have memorable telephone numbers. One way to make a
@@ -42,6 +38,7 @@ import java.util.Scanner;
  * 
  * @author Luo Yinzhuo
  * @date 2013-7-4
+ * @see <a href="http://poj.org/problem?id=1002&amp;lang=zh-CN">487-3279</a>
  */
 public class Main {
 

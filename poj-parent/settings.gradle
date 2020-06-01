@@ -1,0 +1,15 @@
+pluginManagement {
+    repositories {
+        maven {
+            url "https://maven.aliyun.com/repository/spring-plugin"
+        }
+        maven {
+            url "https://maven.aliyun.com/repository/gradle-plugin"
+        }
+    }
+}
+
+include ':poj_1001'
+project(':poj_1001').projectDir = new File(settingsDir, "poj_1000_1099/poj_1001")
+include ':poj_1002'
+project(':poj_1002').projectDir = new File(settingsDir, "poj_1000_1099/poj_1002")

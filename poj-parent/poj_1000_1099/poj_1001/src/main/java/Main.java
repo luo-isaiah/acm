@@ -6,6 +6,7 @@ import java.util.Scanner;
  * 
  * @author Luo Yinzhuo
  * @date 2013-7-4
+ * @see <a href="http://poj.org/problem?id=1001&amp;lang=zh-CN&amp;change=true">求高精度幂</a>
  */
 public class Main {
 

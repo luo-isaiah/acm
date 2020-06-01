@@ -1,19 +1,6 @@
-*.class
-
-# Package Files #
-*.jar
-*.war
-*.ear
-
-# Eclipse Files #
-.project
-.classpath
-/.settings/
-/.metadata/
-
-# Maven #
-/target/
-
-# IntelliJ Files #
-.idea
-*.iml
+# gradle generate files
+.gradle
+gradle
+gradlew
+gradlew.bat
+**/build
