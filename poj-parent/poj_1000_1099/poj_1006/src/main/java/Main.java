@@ -23,6 +23,7 @@ import java.util.Scanner;
  * 
  * @author Luo Yinzhuo
  * @date 2013-7-4
+ * @see <a href="http://poj.org/problem?id=1006&amp;lang=zh-CN">生理周期</a>
  */
 public class Main {
 	/** The physical cycle. */

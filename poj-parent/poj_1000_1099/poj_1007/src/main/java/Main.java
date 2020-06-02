@@ -20,6 +20,7 @@ import java.util.Scanner;
  * 
  * @author Luo Yinzhuo
  * @date 2014-3-24
+ * @see <a href="http://poj.org/problem?id=1007">DNA Sorting</a>
  */
 public class Main {
 	/**

@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -38,6 +36,7 @@ import java.util.Scanner;
  * 
  * @author Luo Yinzhuo
  * @date 2014-3-24
+ * @see <a href="http://poj.org/problem?id=1008&amp;lang=zh-CN">玛雅历</a>
  */
 public class Main {
 	/**
